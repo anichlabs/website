@@ -1,7 +1,7 @@
-# AWS Cloud Club · CCT College Dublin
+# Anich Labs
 
-This repository contains the source code for the official website of the **AWS Cloud Club at CCT College Dublin**.  
-It is a simple, modern, and responsive site intended to give the Club a public presence while keeping the implementation lightweight, fully debuggable, and transparent.
+This repository contains the source code for the **Anich Labs** website.  
+It is a simple, modern, and responsive site intended to represent the Lab’s work in technology, healthcare, and data science — keeping the implementation lightweight, transparent, and open for collaboration.
 
 ---
 
@@ -9,19 +9,19 @@ It is a simple, modern, and responsive site intended to give the Club a public p
 
 The site was built with three priorities in mind:
 
-1. **Visibility** – Provide a clear identity for the Cloud Club that can be shared with students, staff, and external partners.  
-2. **Accessibility** – Fully open source, mobile-friendly, and simple enough to be extended by any student with basic web development knowledge.  
-3. **Professionalism** – Serve as a showcase of how to deliver a minimal but production-ready project, in line with academic and industry expectations.
+1. **Visibility** – Present a clear identity for Anich Labs that can be shared with collaborators, students, and partners.  
+2. **Accessibility** – Fully open source, mobile-friendly, and easy to extend or modify.  
+3. **Professionalism** – Serve as a model of a minimal but production-ready project suitable for research and innovation environments.
 
 ---
 
 ## Tech Stack
 
-- **HTML5 / CSS3 / JavaScript** – No heavy frameworks, so everything is transparent and easy to debug.  
-- **Responsive Design** – Sidebar on desktop, hamburger toggle on mobile.  
-- **Background Video** – Fixed looping `.webm` / `.mov` asset with a subtle overlay for readability.  
-- **Animations** – Sections fade in on scroll using the Intersection Observer API.  
-- **Branding** – AWS dark slate + AWS orange for consistency with Cloud Club guidelines.
+- **HTML5 / CSS3 / JavaScript** – No heavy frameworks; everything is simple and fully debuggable.  
+- **Responsive Design** – Sidebar layout on desktop, collapsible hamburger menu on mobile.  
+- **Background Video** – Fixed looping `.webm` / `.mov` asset with a translucent overlay for readability.  
+- **Animations** – Smooth fade-in effects on scroll using the Intersection Observer API.  
+- **Branding** – Teal and dark slate palette reflecting Anich Labs’ identity in science and innovation.
 
 ---
 
@@ -43,12 +43,12 @@ website/
 
 ## Features
 
-- **Fixed video background** with light overlay.  
-- **Smooth scrolling navigation** with active link highlighting.  
-- **Animated content** (fade + upward motion).  
-- **Responsive layout** with hamburger menu for mobile users.  
-- **Slack Invite CTA** – Call-to-action button on hero section links directly to Slack community:  
-  [Join us in Slack →](https://join.slack.com/t/awsclubie/shared_invite/zt-36rnw9sja-XpcRWmJsQmgzL~DZCnYoTA)
+- **Fixed video background** with light overlay for contrast.  
+- **Smooth scrolling navigation** with section highlighting.  
+- **Animated sections** for professional visual flow.  
+- **Responsive layout** adapting automatically to screen size.  
+- **GitHub Repository CTA** – Hero section links directly to the organization repository:  
+  [Visit Anich Labs on GitHub →](https://github.com/orgs/anichlabs/)
 
 ---
 
@@ -57,7 +57,7 @@ website/
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/<your-org>/<your-repo>.git
+   git clone https://github.com/anichlabs/website.git
    cd website
 
 2. Open index.html in a browser directly or use a simple development server (recommended):
