@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <title>Anich Labs</title>
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' rel='stylesheet'>
+  <!-- 
+    Favicon
+    -------
+    The favicon is the small icon that appears in the browser tab.
+    This file must exist in your project root as favicon.png.
+    If your browser does not update, rename the file (e.g. favicon-v2.png) 
+    to bypass cache.
+  -->
+  <link rel='icon' href='favicon.png' type='image/png'>
+
+  <style>
+    /* 
+      1. RESET STYLES
+      ----------------
+      By default, browsers add margins and paddings to elements.
+      We reset these values to zero so we can control spacing ourselves.
+      We also apply "box-sizing: border-box" so padding and border
+      are included in an element’s total width/height.
+    */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    /*
+      Enable smooth scrolling for anchor links (e.g. #about).
+      This makes page navigation feel more professional.
+    */
+    html { scroll-behavior:smooth; }
+
+    /* 
+      2. BASE TYPOGRAPHY
+      ------------------
+      Define the main font family: "Inter" with fallbacks.
+      Set text color to a near-black for readability.
+      Background is transparent because the video fills the page.
+      Font size uses rem (relative units) for scalability.
+    */
+    body {
+      font-family: 'Inter', 'Open Sans', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      background: transparent;
+      color:#16191F;
+      font-size:1.1rem;
+      line-height:1.6;
+    }
+
+    /* 
+      3. BACKGROUND VIDEO
+      -------------------
+      The video is placed behind everything else:
+      - "position: fixed" keeps it in place even when scrolling.
+      - "object-fit: cover" ensures it fills the screen proportionally.
+      - "z-index: -2" pushes it behind all other content layers.
+    */
+    #bg-video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    /* 
+      4. LIGHT OVERLAY
+      ----------------
+      A semi-transparent white overlay is placed over the video.
+      Purpose:
+      - Prevents the video from being too distracting.
+      - Improves readability of text.
+      Adjust the opacity (0.5 = 50%) to make background more/less visible.
+    */
+    #video-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255,255,255,0.5);
+      z-index: -1;
+    }
+
+    /* 
+      5. LAYOUT CONTAINER
+      -------------------
+      Use Flexbox to create two main areas:
+      - Left sidebar (navigation).
+      - Right main content (sections).
+    */
+    .container { display:flex; min-height:100vh; }
+
+    /* 
+      6. SIDEBAR NAVIGATION
+      ---------------------
+      The sidebar is fixed on the left and uses Anich Labs brand colors.
+      - Background: Anich Labs "dark slate".
+      - Logo and active link: Anich Labs teal.
+      - Text: white for high contrast.
+    */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      height: 100vh;
+      width: 260px;
+      background: #232F3E;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5rem 1.5rem;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+    .logo {
+      display:block;
+      font-size:1.9rem;
+      font-weight:700;
+      margin-bottom:3rem;
+      text-decoration:none;
+      color:#00B5AD;
+    }
+    nav a {
+      display:block;
+      margin-bottom:1.5rem;
+      text-decoration:none;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+      font-weight:500;
+      font-size:1.25rem;
+      color:#FFFFFF;
+      transition:color .2s ease;
+    }
+    nav a:hover,
+    nav a:focus { color:#00B5AD; }
+    nav a.active { color:#00B5AD; }
+
+    /* 
+      7. MAIN CONTENT
+      ----------------
+      Add left margin so content does not overlap with the sidebar.
+      Allow it to expand and take up the remaining width.
+    */
+    main {
+      margin-left:260px;
+      flex:1;
+    }
+
+    /* 
+      8. SECTIONS
+      -----------
+      Each section fills the screen height for a "full page" effect.
+      Text is centred both vertically and horizontally.
+      Animation:
+      - Initially, content is hidden (opacity 0 and moved down).
+      - When the section is visible, it fades in and slides up.
+    */
+    section {
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      min-height:100vh;
+      padding:4rem 2rem;
+    }
+
+    section h2,
+    section p,
+    section .btn-primary {
+      opacity:0;
+      transform:translateY(40px);
+      transition:opacity 0.8s ease, transform 0.8s ease;
+    }
+    section.visible h2,
+    section.visible p,
+    section.visible .btn-primary {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* Section Headings */
+    section h2 {
+      font-size:2rem;
+      font-weight:600;
+      margin-bottom:1rem;
+      color:#0A2540;
+    }
+
+    /* Paragraph text */
+    section p {
+      max-width:720px;
+      font-size:1.2rem;
+      color:#333;
+    }
+
+    /* 
+      9. HERO SECTION
+      ----------------
+      The first section (Home) introduces the club.
+      Headline is larger and bolder.
+      Button uses Anich Labs teal with hover darkening for interactivity.
+    */
+    #home h2 {
+      font-size:3rem;
+      font-weight:700;
+      color:#0A2540;
+    }
+    .btn-primary {
+      background-color:#00B5AD;
+      color:#FFFFFF;
+      padding:0.75rem 1.5rem;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:600;
+      display:inline-block;
+      margin-top:2rem;
+      transition:background .2s ease;
+    }
+    .btn-primary:hover { background:#cc7a00; }
+
+    /* 
+      10. FOOTER
+      ----------
+      Closes the page with a dark bar.
+      Uses muted text to avoid drawing too much attention.
+    */
+    .footer {
+      background:#232F3E;
+      color:#CCCCCC;
+      padding:2rem;
+      text-align:center;
+      font-size:0.9rem;
+    }
+
+    /* 
+      11. MOBILE NAVIGATION
+      ---------------------
+      On large screens:
+      - Sidebar is always visible.
+      On small screens (<767px):
+      - Sidebar slides off screen by default.
+      - A hamburger button appears to toggle sidebar visibility.
+    */
+    .hamburger {
+      display:none;
+      position:fixed; top:1rem; left:1rem;
+      font-size:1.5rem;
+      background:none; border:none; cursor:pointer;
+      z-index:200;
+      color:#0A2540; /* dark by default */
+      transition:color .3s ease;
+    }
+    .hamburger.open { color:#FFFFFF; } /* white when menu open */
+
+    /* Backdrop overlay for mobile menu */
+    #menu-overlay {
+      display:none;
+      position:fixed; top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.4);
+      z-index:90; /* below sidebar, above content */
+      opacity:0;
+      transition:opacity .3s ease;
+    }
+    #menu-overlay.show {
+      display:block;
+      opacity:1;
+    }
+
+    /* Social icons just after the last menu item */
+    .social-icons {
+      margin-top: 2rem;          /* space after "Contact" */
+      display: flex;
+      justify-content: center;   /* center horizontally */
+      gap: 1.5rem;               /* equal spacing */
+    }
+
+    .social-icons a {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:40px; height:40px;         /* larger clickable area */
+    }
+    .social-icons img {
+      width:32px;
+      height:32px;         
+      transition:filter 0.3s ease;
+
+      /* Stronger white, thicker look */
+      filter: brightness(0) invert(1) contrast(200%);
+    }
+    .social-icons img:hover {
+      /* Anich Labs bold */
+      filter: invert(61%) sepia(79%) saturate(427%) hue-rotate(1deg)
+              brightness(101%) contrast(102%)
+              drop-shadow(0 0 0 #00B5AD);
+    }
+    @media (max-width:767px) {
+      .hamburger { display:block; }
+      nav { left:-100%; }              /* hide sidebar off-screen */
+      nav.open { left:0; }             /* slide-in when open */
+      main { margin-left:0; }          /* remove offset so content fills width */
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    BACKGROUND VIDEO
+    ----------------
+    Autoplay, muted, and loop are required for background videos.
+    playsinline ensures it works correctly on mobile browsers.
+  -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="assets/bg/white-background.webm" type="video/webm">
+    <source src="assets/bg/white-background.mov" type="video/mp4">
+  </video>
+
+  <!-- Semi-transparent overlay above the video -->
+  <div id="video-overlay"></div>
+
+  <!-- Hamburger button (only visible on small screens) -->
+  <button class='hamburger' aria-label='Toggle menu'>☰</button>
+
+  <div class='container'>
+    <!-- 
+      SIDEBAR NAVIGATION
+      Contains the logo, navigation links, and social icons.
+    -->
+    <nav id='sidebar'>
+      <a href='#home' class='logo active'>Anich Labs</a>
+      <a href='#about'>About</a>
+      <a href='#vision'>Vision</a>
+      <a href='#team'>Team</a>
+      <a href='#contact'>Contact</a>
+
+      <!-- Social media icons (deep links with fallback) -->
+      <div class="social-icons">
+        <a class="social" data-provider="linkedin" href="https://www.linkedin.com/company/anichlabs/" aria-label="LinkedIn">
+          <img src="assets/icons/linkedin_logo.png" alt="LinkedIn">
+        </a>
+        <a class="social" data-provider="github" href="https://github.com/anichlabs/" aria-label="GitHub">
+          <img src="assets/icons/github_logo.png" alt="GitHub">
+        </a>
+        <a class="social" data-provider="slack" href="https://join.slack.com/t/anichlabs/shared_invite/zt-3f42o8wwx-UGEnY7nJqVPRdM7BPdC2Jg" aria-label="Slack">
+          <img src="assets/icons/slack_logo.png" alt="Slack">
+        </a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- HERO SECTION -->
+      <section id='home'>
+        <h2>Anich Labs</h2>
+        <p>
+          Anich Labs develops and tests solutions at the intersection 
+          of healthcare, data, and artificial intelligence. Our work 
+          transforms research into practical projects with real-world impact.
+        </p>
+        <!-- Call-to-action button linking to Github -->
+        <a href='https://github.com/anichlabs/' 
+           target='_blank' 
+           rel='noopener noreferrer' 
+           class='btn-primary'>
+           Be a contributor on Github
+        </a>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section id='about'>
+        <h2>About Us</h2>
+        <p>
+          Anich Labs is a hub where medicine and digital innovation converge. 
+          We bring together expertise from science and technology to create 
+          an environment for building, testing, and growing ideas into 
+          opportunities with lasting value.
+        </p>
+      </section>
+
+      <!-- VISION SECTION -->
+      <section id='vision'>
+        <h2>Our Vision</h2>
+        <p>
+          To shape a future where data, intelligence, and human health
+          connect seamlessly. We aim to inspire innovation while keeping
+          knowledge open and responsible.
+        </p>
+      </section>
+
+      <!-- TEAM SECTION -->
+      <section id='team'>
+        <h2>Our Team</h2>
+        <p>
+          We are a group of researchers and builders with backgrounds in
+          medicine, analytics, and software development. Together we bring
+          diverse skills to projects that matter.
+        </p>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id='contact'>
+        <h2>Contact</h2>
+        <p>
+          Email: contact@anichlabs.com<br>
+          Location: Tallinn, Estonia.
+        </p>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class='footer'>
+        <p>Anich Labs · © 2025</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Backdrop overlay element (for mobile menu) -->
+  <div id="menu-overlay"></div>
+
+  <script>
+    /*
+      12. JAVASCRIPT INTERACTIVITY
+      ----------------------------
+      - Toggle sidebar on small screens.
+      - Highlight active link.
+      - Smooth scroll + fade-in animation.
+      - Auto-close after 4s if no action.
+      - Overlay click closes menu.
+      - Social icons: open native apps on mobile if available, else store/web.
+    */
+
+    // Select DOM elements
+    const links = document.querySelectorAll('#sidebar a');
+    const sidebar = document.getElementById('sidebar');
+    const hamburger = document.querySelector('.hamburger');
+    const overlay = document.getElementById('menu-overlay');
+    let autoCloseTimer;
+
+    // Function: open menu
+    function openMenu() {
+      sidebar.classList.add('open');
+      hamburger.classList.add('open');
+      overlay.classList.add('show');
+      clearTimeout(autoCloseTimer);
+      autoCloseTimer = setTimeout(closeMenu, 4000); // auto-close after 4s
+    }
+
+    // Function: close menu
+    function closeMenu() {
+      sidebar.classList.remove('open');
+      hamburger.classList.remove('open');
+      overlay.classList.remove('show');
+      clearTimeout(autoCloseTimer);
+    }
+
+    // Toggle menu when hamburger clicked
+    hamburger.addEventListener('click', () => {
+      if (sidebar.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    // Close when overlay is clicked
+    overlay.addEventListener('click', closeMenu);
+
+    // Smooth scroll + active link + close menu
+    links.forEach(link => {
+      // Skip social icons (they have class 'social')
+      if (link.classList.contains('social')) return;
+
+      link.addEventListener('click', e => {
+        // Only intercept internal anchors
+        if (link.getAttribute('href').startsWith('#')) {
+          e.preventDefault();
+
+          // Get target section
+          const targetId = link.getAttribute('href').substring(1);
+          const target = document.getElementById(targetId);
+
+          // Remove "active" from all, add to clicked
+          links.forEach(x => x.classList.remove('active'));
+          link.classList.add('active');
+
+          // Smooth scroll
+          window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+
+          // Close menu immediately after link click
+          closeMenu();
+
+          // Reset animations then re-trigger for replay effect
+          document.querySelectorAll('section').forEach(sec => sec.classList.remove('visible'));
+          setTimeout(() => target.classList.add('visible'), 200);
+        }
+      });
+    });
+
+    /*
+      INTERSECTION OBSERVER FOR FADE-IN
+      ---------------------------------
+      Adds "visible" when 20% of section is in view.
+    */
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(sec => observer.observe(sec));
+
+    /*
+      SOCIAL ICONS: simplified behaviour
+      ----------------------------------
+      Strategy:
+      - Always open the normal web link in a new browser tab.
+      - Works on desktop and mobile without forcing App Store/Play Store.
+      - If the app is installed, the OS/browser may still hand off to it automatically.
+    */
+    document.querySelectorAll('.social-icons a.social').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const href = a.getAttribute('href');
+        window.open(href, '_blank', 'noopener,noreferrer');
+      });
+    });
+
+  </script>
+</body>
+</html>
