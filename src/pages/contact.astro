@@ -10,35 +10,83 @@ import { Icon } from "astro-icon/components";
   <Container>
     <Sectionhead>
       <Fragment slot="title">Contact</Fragment>
-      <Fragment slot="desc">We are a here to help.</Fragment>
+      <Fragment slot="desc">Let's talk about your project.</Fragment>
     </Sectionhead>
 
     <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
+
+      <!-- Left column -->
       <div>
-        <h2 class="font-medium text-2xl text-gray-800">Contact Astroship</h2>
+        <h2 class="font-medium text-2xl text-gray-800">Get in Touch</h2>
         <p class="text-lg leading-relaxed text-slate-500 mt-3">
-          Have something to say? We are here to help. Fill up the form or send
-          email or call phone.
+          Have a project in mind? Send us a message or book a free 30-minute
+          discovery call - no commitment required.
         </p>
-        <div class="mt-5">
-          <div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
-            <span>1734 Sanfransico, CA 93063</span>
-          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
-              href="mailto:hello@astroshipstarter.com"
-              >hello@astroshipstarter.com</a
-            >
-          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:phone" /><a
-              href="tel:+1 (987) 4587 899">+1 (987) 4587 899</a
-            >
+
+        <!-- Contact details - icons only with clean labels -->
+        <div class="mt-8 flex flex-col gap-5">
+
+          <a
+            href="mailto:contact@anichlabs.com"
+            class="flex items-center gap-4 group">
+            <div class="bg-indigo-50 group-hover:bg-indigo-100 rounded-xl p-3 transition-colors">
+              <Icon class="text-indigo-600 w-5 h-5" name="uil:envelope" />
+            </div>
+            <div>
+              <p class="text-xs text-slate-400 uppercase tracking-wide font-medium">Email</p>
+              <p class="text-gray-700 group-hover:text-indigo-600 transition-colors">contact@anichlabs.com</p>
+            </div>
+          </a>
+
+          <a
+            href="https://linkedin.com/company/anichlabs"
+            target="_blank"
+            rel="noopener"
+            class="flex items-center gap-4 group">
+            <div class="bg-indigo-50 group-hover:bg-indigo-100 rounded-xl p-3 transition-colors">
+              <Icon class="text-indigo-600 w-5 h-5" name="uil:linkedin" />
+            </div>
+            <div>
+              <p class="text-xs text-slate-400 uppercase tracking-wide font-medium">LinkedIn</p>
+              <p class="text-gray-700 group-hover:text-indigo-600 transition-colors">AnichLabs</p>
+            </div>
+          </a>
+
+          <div class="flex items-center gap-4">
+            <div class="bg-indigo-50 rounded-xl p-3">
+              <Icon class="text-indigo-600 w-5 h-5" name="uil:map-marker" />
+            </div>
+            <div>
+              <p class="text-xs text-slate-400 uppercase tracking-wide font-medium">Location</p>
+              <p class="text-gray-700">Tallinn, Estonia 🇪🇪 · Remote-first</p>
+            </div>
           </div>
+
         </div>
+
+        <!-- Book a Call CTA -->
+        <div class="mt-10 p-6 bg-indigo-50 rounded-xl border border-indigo-100">
+          <h3 class="font-semibold text-gray-800 text-lg">📅 Book a Free Discovery Call</h3>
+          <p class="text-slate-500 text-sm mt-2">
+            30 minutes on Zoom. We'll discuss your project and outline how we can help.
+          </p>
+          <a
+            href="https://calendly.com/chris-anichlabs/30min"
+            target="_blank"
+            rel="noopener"
+            class="mt-4 inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-3 rounded-lg transition-colors">
+            <Icon class="w-4 h-4" name="uil:calendar-alt" />
+            Book a 30-Minute Call
+          </a>
+        </div>
+
       </div>
+
+      <!-- Right column: form -->
       <div>
         <Contactform />
       </div>
+
     </div>
   </Container>
 </Layout>
