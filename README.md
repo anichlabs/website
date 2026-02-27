@@ -113,7 +113,7 @@ Then update `src/components/contactform.astro` with your key.
 - **Email:** contact@anichlabs.com
 - **LinkedIn:** [linkedin.com/company/anichlabs](https://linkedin.com/company/anichlabs)
 - **Book a call:** [calendly.com/chris-anichlabs/30min](https://calendly.com/chris-anichlabs/30min)
-- **Location:** Tallinn, Estonia 🇪🇪
+- **Location:** Tallinn, Estonia
 
 ---
 
