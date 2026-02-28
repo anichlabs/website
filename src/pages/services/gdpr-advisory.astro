@@ -1,0 +1,147 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Sectionhead from "@/components/sectionhead.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="GDPR Advisory | AnichLabs OÜ">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">GDPR Advisory</Fragment>
+      <Fragment slot="desc">Data protection frameworks, DPIA, and GDPR compliance for health data processors entering the European market.</Fragment>
+    </Sectionhead>
+
+    <div class="mx-auto max-w-3xl mt-16">
+      <div class="bg-red-50 border border-red-100 rounded-2xl p-8">
+        <p class="text-xs font-semibold uppercase tracking-widest text-red-400 mb-3">The Problem</p>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Health data is the most sensitive category under GDPR — and most non-EU companies underestimate what that means</h2>
+        <p class="text-slate-600 leading-relaxed">Health data is Special Category data under GDPR Article 9, subject to stricter obligations than standard personal data. Non-EU companies processing health data of EU residents must comply with GDPR regardless of where they are based — including appointing an EU representative under Article 27, conducting DPIAs for high-risk processing, and implementing appropriate technical and organisational measures.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-3xl mt-10">
+      <div class="rounded-2xl p-8" style="background-color: #EEF2FF; border: 1px solid #C7D2FE;">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: #003399">The Solution</p>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">A practical GDPR compliance framework built for health data processors</h2>
+        <p class="text-slate-600 leading-relaxed">AnichLabs OÜ delivers GDPR advisory services specifically for health-tech companies. We combine clinical context with data protection expertise to build frameworks that are compliant, proportionate, and implementable — not generic checklists that don't fit your actual data flows.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-4xl mt-16">
+      <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">What's Included</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:search" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">GDPR Gap Analysis</h3>
+          <p class="text-slate-500 text-sm">Assessment of your current data processing activities against GDPR requirements, with a written gap report and prioritised remediation steps.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:file-alt" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Data Protection Impact Assessment (DPIA)</h3>
+          <p class="text-slate-500 text-sm">Full DPIA for high-risk processing activities involving health data — required under GDPR Article 35 for most health-tech applications.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:map-marker" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Article 27 EU Representation</h3>
+          <p class="text-slate-500 text-sm">Designation of AnichLabs OÜ as your GDPR Article 27 EU representative for non-EU companies processing EU residents' data.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:lock" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Technical & Organisational Measures</h3>
+          <p class="text-slate-500 text-sm">Guidance on appropriate TOMs — encryption, access controls, pseudonymisation, retention policies — proportionate to your risk level.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:file-check-alt" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Data Processing Agreements</h3>
+          <p class="text-slate-500 text-sm">Review and drafting of DPAs with processors, sub-processors, and clinical partners handling EU health data.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:bell" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Breach Response Planning</h3>
+          <p class="text-slate-500 text-sm">GDPR-compliant data breach response procedure including 72-hour notification obligations to supervisory authorities.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-3xl mt-16">
+      <h2 class="text-2xl font-bold text-gray-800 mb-10 text-center">How It Works</h2>
+      <div class="flex flex-col gap-6">
+        <div class="flex gap-5 items-start">
+          <div class="text-white rounded-full w-9 h-9 flex items-center justify-center font-bold shrink-0" style="background-color: #003399">1</div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Discovery Call (free)</h3>
+            <p class="text-slate-500 text-sm mt-1">We discuss your data flows, processing activities, and current GDPR posture to scope the engagement.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 items-start">
+          <div class="text-white rounded-full w-9 h-9 flex items-center justify-center font-bold shrink-0" style="background-color: #003399">2</div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Gap Analysis</h3>
+            <p class="text-slate-500 text-sm mt-1">We map your processing activities against GDPR requirements and identify gaps — with special focus on health data obligations under Article 9.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 items-start">
+          <div class="text-white rounded-full w-9 h-9 flex items-center justify-center font-bold shrink-0" style="background-color: #003399">3</div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Framework Delivery</h3>
+            <p class="text-slate-500 text-sm mt-1">You receive a written compliance framework, DPIA, and prioritised action plan tailored to your specific data processing context.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 items-start">
+          <div class="text-white rounded-full w-9 h-9 flex items-center justify-center font-bold shrink-0" style="background-color: #003399">4</div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Ongoing Support</h3>
+            <p class="text-slate-500 text-sm mt-1">We provide retainer-based GDPR advisory for ongoing compliance monitoring, new processing activities, and breach response.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-3xl mt-16">
+      <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="flex flex-col gap-5">
+        <details class="bg-slate-50 border border-slate-100 rounded-xl p-6 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            Does GDPR apply to my company if we're based outside the EU?
+            <Icon name="uil:angle-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-slate-500 text-sm mt-4">Yes. GDPR applies to any organisation processing personal data of EU residents, regardless of where the organisation is based. This is the 'extraterritorial effect' under GDPR Article 3.</p>
+        </details>
+        <details class="bg-slate-50 border border-slate-100 rounded-xl p-6 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            What is Article 27 representation?
+            <Icon name="uil:angle-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-slate-500 text-sm mt-4">Non-EU companies subject to GDPR must designate a representative in the EU under Article 27. This person or entity receives communications from EU supervisory authorities on your behalf.</p>
+        </details>
+        <details class="bg-slate-50 border border-slate-100 rounded-xl p-6 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            Is health data treated differently under GDPR?
+            <Icon name="uil:angle-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-slate-500 text-sm mt-4">Yes. Health data is Special Category data under Article 9 and requires an explicit legal basis for processing (typically explicit consent or a specific exception), stricter security measures, and a DPIA in most cases.</p>
+        </details>
+        <details class="bg-slate-50 border border-slate-100 rounded-xl p-6 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            Do we need a Data Protection Officer?
+            <Icon name="uil:angle-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-slate-500 text-sm mt-4">It depends on your processing. Organisations that process health data at large scale are typically required to appoint a DPO. We can assess whether this applies to you.</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-2xl mt-20 mb-10 text-center">
+      <h2 class="text-2xl font-bold text-gray-800">Ready to get your GDPR compliance in order?</h2>
+      <p class="text-slate-500 mt-3">Book a free 30-minute call and we'll assess your current exposure and what compliance requires.</p>
+      <a href="https://calendly.com/chris-anichlabs/30min" target="_blank" rel="noopener"
+        class="mt-6 inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+        style="background-color: #003399">
+        <Icon name="uil:calendar-alt" class="w-5 h-5" />
+        Book a Free Call
+      </a>
+    </div>
+
+  </Container>
+</Layout>

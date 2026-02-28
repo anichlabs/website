@@ -3,16 +3,18 @@ import Container from "@/components/container.astro";
 import Link from "@/components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
-
 const menuitems = [
   {
     title: "Services",
     path: "#",
     children: [
-      { title: "AI Consulting", path: "/services#ai-consulting" },
-      { title: "App Development", path: "/services#app-development" },
-      { title: "Data Analytics", path: "/services#data-analytics" },
-      { title: "Website & Email Setup", path: "/services#web-email" },
+      { title: "EU Authorised Representative", path: "/services/eu-authorised-representative" },
+      { title: "EU AI Act & MDR Compliance", path: "/services/eu-ai-act-mdr-compliance" },
+      { title: "GDPR Advisory", path: "/services/gdpr-advisory" },
+      { title: "Clinical AI Strategy", path: "/services/clinical-ai-strategy" },
+      { title: "Data Science & Analytics", path: "/services/data-analytics" },
+      { title: "App Development", path: "/services/app-development" },
+
     ],
   },
   {
@@ -29,7 +31,6 @@ const menuitems = [
   },
 ];
 ---
-
 <Container>
   <header class="flex flex-col lg:flex-row justify-between items-center my-5">
     <Astronav>
@@ -59,7 +60,7 @@ const menuitems = [
                   <li>
                     <a
                       href={item.path}
-                      class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900">
+                      class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-[#003399] transition-colors">
                       <span>{item.title}</span>
                     </a>
                   </li>

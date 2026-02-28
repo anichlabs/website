@@ -4,105 +4,128 @@ import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
 import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
-import christopherPhoto from "@/assets/christopher.png";
+import { getCollection } from "astro:content";
+import christopherPhoto from "@/assets/christopher.jpg";
+
+const avatarMap: Record<string, ImageMetadata> = {
+  "christopher.png": christopherPhoto,
+};
+
+const team = await getCollection("team", ({ data }) => !data.draft);
+const sortedTeam = team.sort(
+  (a, b) => a.data.publishDate.getTime() - b.data.publishDate.getTime()
+);
 ---
 
 <Layout title="About">
   <Container>
     <Sectionhead>
       <Fragment slot="title">About</Fragment>
-      <Fragment slot="desc">Bridging AI innovation and clinical practice - responsibly.</Fragment>
+      <Fragment slot="desc">Clinical expertise, technical depth, and EU regulatory knowledge in one place.</Fragment>
     </Sectionhead>
 
-    <div class="mx-auto max-w-4xl mt-16">
-      <div class="grid md:grid-cols-3 gap-12 items-start">
-        <div class="flex flex-col items-center text-center">
-          <Picture
-            src={christopherPhoto}
-            alt="Christopher Anich"
-            width={160}
-            height={160}
-            class="w-40 h-40 rounded-2xl object-cover object-center"
-          />
-          <h2 class="mt-4 text-xl font-bold text-gray-800">Christopher Anich</h2>
-          <p class="text-indigo-600 font-medium text-sm mt-1">Founder & Healthcare AI Consultant</p>
-          <p class="text-slate-400 text-sm mt-1">Tallinn, Estonia</p>
-          <div class="flex gap-3 mt-4">
-            <a href="https://linkedin.com/company/anichlabs" target="_blank" rel="noopener"
-              class="bg-indigo-50 hover:bg-indigo-100 text-indigo-600 p-2 rounded-lg transition-colors">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-            </a>
-            <a href="mailto:contact@anichlabs.com"
-              class="bg-indigo-50 hover:bg-indigo-100 text-indigo-600 p-2 rounded-lg transition-colors">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-            </a>
+    <div class="mx-auto max-w-4xl mt-16 flex flex-col gap-20">
+      {sortedTeam.map(async (member) => {
+        const { Content } = await member.render();
+        const photo = avatarMap[member.data.avatar.src];
+        return (
+          <div class="grid md:grid-cols-3 gap-12 items-start">
+
+            <!-- Left: photo + name -->
+            <div class="flex flex-col items-center text-center">
+              <div class="overflow-hidden rounded-2xl">
+                {photo ? (
+                  <Picture
+                    src={photo}
+                    alt={member.data.avatar.alt}
+                    width={400}
+                    height={400}
+                    class="w-56 h-56 object-cover object-center transition-transform duration-300 hover:scale-110"
+                  />
+                ) : (
+                  <div class="w-40 h-40 rounded-2xl bg-blue-50 border-2 border-blue-100 flex items-center justify-center">
+                    <Icon name="uil:user-circle" class="w-24 h-24" style="color: #003399; opacity: 0.4" />
+                  </div>
+                )}
+              </div>
+              <h2 class="mt-4 text-xl font-bold text-gray-800">{member.data.name}</h2>
+              <p class="font-medium text-sm mt-1" style="color: #003399">{member.data.title}</p>
+              <p class="text-slate-400 text-sm mt-1">{member.data.location}</p>
+              <div class="flex gap-3 mt-4">
+                {member.data.linkedin && (
+                  <a href={member.data.linkedin} target="_blank" rel="noopener"
+                    class="bg-blue-50 hover:bg-blue-100 text-blue-900 p-2 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </a>
+                )}
+                {member.data.email && (
+                  <a href={`mailto:${member.data.email}`}
+                    class="bg-blue-50 hover:bg-blue-100 text-blue-900 p-2 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <!-- Right: bio rendered from markdown -->
+            <div class="md:col-span-2 flex flex-col gap-4 text-slate-600 leading-relaxed prose prose-blue prose-p:my-0 max-w-none">
+              <Content />
+            </div>
+
           </div>
-        </div>
-        <div class="md:col-span-2 flex flex-col gap-5 text-slate-600 leading-relaxed">
-          <p>
-            I'm a medical doctor and data scientist with a background in Computer Science 
-            and an MSc in Data Analytics from Dublin. My work spans deep learning, computer 
-            vision, cloud deployment, and clinical data strategy - helping organisations 
-            implement effective AI solutions in healthcare.
-          </p>
-          <p>
-            I founded AnichLabs OÜ on a <strong class="text-gray-800">compliance-first
-            philosophy</strong> - EU AI Act, GDPR, and medical device standards are
-            embedded from day one, not added later. I work with a trusted network of
-            developers, data scientists, and regulatory advisors to deliver solutions
-            that are functional, auditable, and ready for regulated environments.
-          </p>
-        </div>
-      </div>
+        );
+      })}
     </div>
 
+    <!-- Expertise cards -->
     <div class="mx-auto max-w-4xl mt-16">
       <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">Core Expertise</h3>
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
         <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
-          <Icon name="uil:brain" class="w-8 h-8 text-indigo-600 mb-3" />
-          <h4 class="font-semibold text-gray-800">Healthcare AI</h4>
-          <p class="text-slate-500 text-sm mt-2">Medical imaging, clinical AI model development, and responsible AI deployment in health systems.</p>
+          <Icon name="uil:shield-check" class="w-8 h-8 mb-3" style="color: #003399" />
+          <h4 class="font-semibold text-gray-800">EU Authorised Representative</h4>
+          <p class="text-slate-500 text-sm mt-2">Formal EU representation under written mandate for non-EU health-tech companies entering the European market.</p>
         </div>
         <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
-          <Icon name="uil:shield-check" class="w-8 h-8 text-indigo-600 mb-3" />
-          <h4 class="font-semibold text-gray-800">Compliance-First Design</h4>
-          <p class="text-slate-500 text-sm mt-2">EU AI Act, GDPR, and MDR compliance embedded from day one - not added as an afterthought.</p>
+          <Icon name="uil:balance-scale" class="w-8 h-8 mb-3" style="color: #003399" />
+          <h4 class="font-semibold text-gray-800">EU AI Act and MDR Compliance</h4>
+          <p class="text-slate-500 text-sm mt-2">Risk classification, technical documentation review, and compliance roadmaps for high-risk medical AI systems.</p>
         </div>
         <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
-          <Icon name="uil:chart-line" class="w-8 h-8 text-indigo-600 mb-3" />
-          <h4 class="font-semibold text-gray-800">Data Science & Analytics</h4>
-          <p class="text-slate-500 text-sm mt-2">Deep learning, computer vision, statistical modelling, and data pipeline architecture.</p>
+          <Icon name="uil:lock-access" class="w-8 h-8 mb-3" style="color: #003399" />
+          <h4 class="font-semibold text-gray-800">GDPR Advisory</h4>
+          <p class="text-slate-500 text-sm mt-2">Data protection frameworks, DPIA, Article 27 representation, and GDPR compliance for health data processors.</p>
         </div>
         <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
-          <Icon name="uil:cloud-computing" class="w-8 h-8 text-indigo-600 mb-3" />
-          <h4 class="font-semibold text-gray-800">Cloud & Deployment</h4>
-          <p class="text-slate-500 text-sm mt-2">Containerised pipelines, GPU inference validation, and scalable cloud-based AI systems.</p>
+          <Icon name="uil:brain" class="w-8 h-8 mb-3" style="color: #003399" />
+          <h4 class="font-semibold text-gray-800">Clinical AI Strategy</h4>
+          <p class="text-slate-500 text-sm mt-2">Translating clinical needs into technically sound and regulatorily compliant AI product requirements.</p>
         </div>
         <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
-          <Icon name="uil:mobile-android" class="w-8 h-8 text-indigo-600 mb-3" />
+          <Icon name="uil:chart-line" class="w-8 h-8 mb-3" style="color: #003399" />
+          <h4 class="font-semibold text-gray-800">Data Science and Analytics</h4>
+          <p class="text-slate-500 text-sm mt-2">Statistical modelling, data pipelines, and dashboards built for healthcare environments with compliance by design.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:mobile-android" class="w-8 h-8 mb-3" style="color: #003399" />
           <h4 class="font-semibold text-gray-800">App Development</h4>
-          <p class="text-slate-500 text-sm mt-2">Web and mobile applications for healthcare and health-tech startups, including dashboards and data tools.</p>
-        </div>
-        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
-          <Icon name="uil:users-alt" class="w-8 h-8 text-indigo-600 mb-3" />
-          <h4 class="font-semibold text-gray-800">Clinical Strategy</h4>
-          <p class="text-slate-500 text-sm mt-2">Translating clinical needs into technical requirements for AI products and digital health infrastructure.</p>
+          <p class="text-slate-500 text-sm mt-2">GDPR-compliant web and mobile applications for healthcare operators and health-tech companies.</p>
         </div>
       </div>
     </div>
 
+    <!-- CTA -->
     <div class="mx-auto max-w-2xl mt-20 mb-10 text-center">
-      <h3 class="text-2xl font-bold text-gray-800">Ready to work together?</h3>
-      <p class="text-slate-500 mt-3">Book a free 30-minute discovery call and let's discuss how AnichLabs OÜ can help your organisation.</p>
+      <h3 class="text-2xl font-bold text-gray-800">Ready to enter the European market?</h3>
+      <p class="text-slate-500 mt-3">Book a free 30-minute discovery call to discuss how AnichLabs OÜ can support your EU compliance journey.</p>
       <a href="https://calendly.com/chris-anichlabs/30min" target="_blank" rel="noopener"
-        class="mt-6 inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
+        class="mt-6 inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-lg transition-colors hover:opacity-90" style="background-color: #003399">
         <Icon name="uil:calendar-alt" class="w-5 h-5" />
-        Book a Free Call
+        Book a Free Discovery Call
       </a>
     </div>
 

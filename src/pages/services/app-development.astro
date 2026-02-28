@@ -1,0 +1,147 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Sectionhead from "@/components/sectionhead.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="App Development | AnichLabs OÜ">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">App Development</Fragment>
+      <Fragment slot="desc">GDPR-compliant web and mobile applications for healthcare operators and health-tech companies.</Fragment>
+    </Sectionhead>
+
+    <div class="mx-auto max-w-3xl mt-16">
+      <div class="bg-red-50 border border-red-100 rounded-2xl p-8">
+        <p class="text-xs font-semibold uppercase tracking-widest text-red-400 mb-3">The Problem</p>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Generic development agencies don't understand healthcare compliance</h2>
+        <p class="text-slate-600 leading-relaxed">Most development agencies can build a functional app. Very few understand the GDPR obligations for health data, the UX requirements of clinical workflows, or the technical architecture needed to support regulatory audit trails. The result is software that either doesn't fit clinical reality, creates compliance liabilities, or requires expensive rebuilds before it can be deployed in a regulated environment.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-3xl mt-10">
+      <div class="rounded-2xl p-8" style="background-color: #EEF2FF; border: 1px solid #C7D2FE;">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: #003399">The Solution</p>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Custom healthcare applications built with compliance from line one of code</h2>
+        <p class="text-slate-600 leading-relaxed">AnichLabs OÜ builds web and mobile applications for healthcare operators and health-tech companies with GDPR compliance, clinical workflow fit, and regulatory readiness built in from the start. Whether it's a patient-facing tool, a clinical dashboard, or an internal data platform — we build it right the first time.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-4xl mt-16">
+      <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">What's Included</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:mobile-android" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Web & Mobile Applications</h3>
+          <p class="text-slate-500 text-sm">Responsive web applications and cross-platform mobile apps tailored to your users, clinical workflows, and regulatory environment.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:lock" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">GDPR-Compliant Data Handling</h3>
+          <p class="text-slate-500 text-sm">Consent management, data minimisation, role-based access controls, and audit logging built in from the start — not added later.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:chart-bar" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Clinical Dashboards</h3>
+          <p class="text-slate-500 text-sm">Data visualisation tools that surface actionable insights for clinicians and healthcare managers without overwhelming them with raw data.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:cloud-computing" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Cloud Deployment</h3>
+          <p class="text-slate-500 text-sm">Containerised, scalable deployments on AWS, GCP, or Azure — with EU data residency options where required by GDPR or client policy.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:link" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">API & System Integrations</h3>
+          <p class="text-slate-500 text-sm">Secure integrations with EHR systems, lab platforms, payment gateways, or third-party APIs — documented and auditable.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:wrench" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Maintenance & Support</h3>
+          <p class="text-slate-500 text-sm">Ongoing technical support, security updates, and feature development after launch — so you are never left managing a system you don't fully control.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-3xl mt-16">
+      <h2 class="text-2xl font-bold text-gray-800 mb-10 text-center">How It Works</h2>
+      <div class="flex flex-col gap-6">
+        <div class="flex gap-5 items-start">
+          <div class="text-white rounded-full w-9 h-9 flex items-center justify-center font-bold shrink-0" style="background-color: #003399">1</div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Discovery & Requirements</h3>
+            <p class="text-slate-500 text-sm mt-1">We map your workflows, user needs, and compliance requirements into a clear product specification before writing a line of code.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 items-start">
+          <div class="text-white rounded-full w-9 h-9 flex items-center justify-center font-bold shrink-0" style="background-color: #003399">2</div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Design & Prototype</h3>
+            <p class="text-slate-500 text-sm mt-1">We design the UI/UX and build a working prototype for clinical and stakeholder feedback before full development begins.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 items-start">
+          <div class="text-white rounded-full w-9 h-9 flex items-center justify-center font-bold shrink-0" style="background-color: #003399">3</div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Development & Testing</h3>
+            <p class="text-slate-500 text-sm mt-1">Iterative development with regular check-ins. Every feature is tested for function, security, and GDPR compliance.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 items-start">
+          <div class="text-white rounded-full w-9 h-9 flex items-center justify-center font-bold shrink-0" style="background-color: #003399">4</div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Deployment & Handover</h3>
+            <p class="text-slate-500 text-sm mt-1">We deploy to your chosen cloud environment and provide full documentation, training, and optional ongoing support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-3xl mt-16">
+      <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="flex flex-col gap-5">
+        <details class="bg-slate-50 border border-slate-100 rounded-xl p-6 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            What technologies do you build with?
+            <Icon name="uil:angle-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-slate-500 text-sm mt-4">Typically React or Astro for frontend, Python (FastAPI) or Node.js for backend, and PostgreSQL or cloud-native databases. We choose the stack that fits your needs and team, not the one we're most comfortable with.</p>
+        </details>
+        <details class="bg-slate-50 border border-slate-100 rounded-xl p-6 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            Can you build an MVP quickly?
+            <Icon name="uil:angle-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-slate-500 text-sm mt-4">Yes. We can deliver a functional, GDPR-compliant MVP in 4–8 weeks depending on scope. We prioritise the features that validate your core assumption first.</p>
+        </details>
+        <details class="bg-slate-50 border border-slate-100 rounded-xl p-6 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            How do you handle health data security?
+            <Icon name="uil:angle-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-slate-500 text-sm mt-4">Health data is Special Category under GDPR Article 9. We implement encryption at rest and in transit, role-based access control, audit logging, and data processing agreements as standard on every project.</p>
+        </details>
+        <details class="bg-slate-50 border border-slate-100 rounded-xl p-6 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            What if we already have a partially built application?
+            <Icon name="uil:angle-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-slate-500 text-sm mt-4">We can take over existing codebases, audit them for security and GDPR gaps, and continue development. We give you an honest assessment of what we find before committing to anything.</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-2xl mt-20 mb-10 text-center">
+      <h2 class="text-2xl font-bold text-gray-800">Ready to build a healthcare application that actually works?</h2>
+      <p class="text-slate-500 mt-3">Book a free 30-minute call to discuss your project and get a custom quote.</p>
+      <a href="https://calendly.com/chris-anichlabs/30min" target="_blank" rel="noopener"
+        class="mt-6 inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+        style="background-color: #003399">
+        <Icon name="uil:calendar-alt" class="w-5 h-5" />
+        Book a Free Call
+      </a>
+    </div>
+
+  </Container>
+</Layout>

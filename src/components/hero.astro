@@ -1,40 +1,116 @@
 ---
-import { Picture } from "astro:assets";
-import heroImage from "@/assets/hero.png";
 import Link from "@/components/ui/link.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <div class="py-6 md:order-1 hidden md:block">
-    <Picture
-      src={heroImage}
-      alt="AnichLabs OÜ - AI and Data Solutions"
-      widths={[200, 400, 600]}
-      sizes="(max-width: 800px) 100vw, 620px"
-      loading="eager"
-      format="avif"
-    />
+<main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+
+  <!-- Right: animated Rod of Asclepius (md: order-1 = right side) -->
+  <div class="py-6 md:order-1 flex items-center justify-center">
+    <div class="relative w-72 h-72 md:w-96 md:h-96">
+
+      <!-- Outer ring -->
+      <svg class="absolute inset-0 w-full h-full animate-spin-slow" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="200" r="190" stroke="#003399" stroke-width="1.5" stroke-dasharray="12 8" opacity="0.2"/>
+      </svg>
+
+      <!-- Middle ring -->
+      <svg class="absolute inset-0 w-full h-full animate-spin-slower" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation-direction: reverse;">
+        <circle cx="200" cy="200" r="155" stroke="#003399" stroke-width="1" stroke-dasharray="6 10" opacity="0.15"/>
+      </svg>
+
+      <!-- Main Rod of Asclepius SVG -->
+      <svg class="absolute inset-0 w-full h-full drop-shadow-lg animate-float" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Background circle -->
+        <circle cx="200" cy="200" r="130" fill="#EEF4FF" stroke="#003399" stroke-width="2" opacity="0.9"/>
+
+        <!-- Staff / Rod -->
+        <line x1="200" y1="90" x2="200" y2="320" stroke="#003399" stroke-width="8" stroke-linecap="round"/>
+
+        <!-- Top of staff - small knob -->
+        <circle cx="200" cy="90" r="7" fill="#003399"/>
+
+        <!-- Snake body - sinuous path wrapping around staff -->
+        <path d="
+          M 200 290
+          C 230 275, 240 255, 215 240
+          C 190 225, 175 210, 200 195
+          C 225 180, 235 165, 215 150
+          C 195 135, 178 125, 200 112
+        " stroke="#1a56db" stroke-width="12" stroke-linecap="round" fill="none"/>
+
+        <!-- Snake scales detail -->
+        <path d="
+          M 200 290
+          C 230 275, 240 255, 215 240
+          C 190 225, 175 210, 200 195
+          C 225 180, 235 165, 215 150
+          C 195 135, 178 125, 200 112
+        " stroke="#4f83e0" stroke-width="5" stroke-linecap="round" fill="none" stroke-dasharray="3 8" opacity="0.6"/>
+
+        <!-- Snake head -->
+        <ellipse cx="200" cy="108" rx="12" ry="9" fill="#1a56db" transform="rotate(-10 200 108)"/>
+
+        <!-- Snake eye -->
+        <circle cx="205" cy="105" r="2.5" fill="white"/>
+        <circle cx="205.8" cy="105" r="1.2" fill="#001a66"/>
+
+        <!-- Snake tongue -->
+        <path d="M 200 100 L 196 95 M 200 100 L 204 95" stroke="#cc0000" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Small EU stars at bottom -->
+        <g opacity="0.6">
+          <text x="148" y="345" font-size="10" fill="#003399" text-anchor="middle">★</text>
+          <text x="168" y="352" font-size="10" fill="#003399" text-anchor="middle">★</text>
+          <text x="190" y="355" font-size="10" fill="#003399" text-anchor="middle">★</text>
+          <text x="212" y="352" font-size="10" fill="#003399" text-anchor="middle">★</text>
+          <text x="232" y="345" font-size="10" fill="#003399" text-anchor="middle">★</text>
+        </g>
+
+        <!-- Label -->
+        <text x="200" y="378" font-size="11" fill="#003399" text-anchor="middle" font-family="sans-serif" letter-spacing="2" opacity="0.7">ANICHLABS OÜ</text>
+
+      </svg>
+    </div>
   </div>
+
+  <!-- Left: text content -->
   <div>
-    <h1
-      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-      AI & Data Solutions for Healthcare and Startups
+    <p class="text-sm font-semibold uppercase tracking-widest mb-3" style="color: #003399">
+      EU AI Act · GDPR · MDR · EU Authorised Representative
+    </p>
+    <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+      Healthcare AI Compliance in <span style="color: #003399">Europe</span>
     </h1>
     <p class="text-lg mt-4 text-slate-600 max-w-xl">
-      We help healthcare professionals, startups, and small teams leverage AI,
-      data analytics, and smart apps to improve outcomes and streamline
-      operations.
+      AnichLabs helps health-tech companies from the US, Latin America, and
+      beyond build the compliance foundation to enter and operate in the
+      European market. Clinical judgment, technical depth, and regulatory
+      expertise in one place.
     </p>
-    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+    <ul class="mt-5 space-y-1 text-sm text-slate-500 max-w-md">
+      <li class="flex items-center gap-2">
+        <Icon name="uil:check-circle" class="w-4 h-4 shrink-0" style="color: #003399" />
+        EU Authorised Representative and GDPR compliance
+      </li>
+      <li class="flex items-center gap-2">
+        <Icon name="uil:check-circle" class="w-4 h-4 shrink-0" style="color: #003399" />
+        EU AI Act readiness for high-risk medical AI systems
+      </li>
+      <li class="flex items-center gap-2">
+        <Icon name="uil:check-circle" class="w-4 h-4 shrink-0" style="color: #003399" />
+        Led by a medical doctor with an MSc in Data Analytics
+      </li>
+    </ul>
+    <div class="mt-8 flex flex-col sm:flex-row gap-3">
       <Link
         href="https://calendly.com/chris-anichlabs/30min"
         target="_blank"
         rel="noopener"
         class="flex gap-1 items-center justify-center">
         <Icon class="text-white w-5 h-5" name="uil:calendar-alt" />
-        Book a Free Call
+        Book a Free Discovery Call
       </Link>
       <Link
         size="lg"
@@ -42,8 +118,31 @@ import { Icon } from "astro-icon/components";
         href="#services"
         class="flex gap-1 items-center justify-center">
         <Icon class="text-black w-4 h-4" name="uil:arrow-down" />
-        Our Services
+        See How We Help
       </Link>
     </div>
+    <p class="mt-6 text-xs text-slate-400">
+      Compliance partner for health-tech companies entering the European market.
+    </p>
   </div>
+
 </main>
+
+<style>
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes spin-slower {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-10px); }
+  }
+
+  .animate-spin-slow   { animation: spin-slow   18s linear infinite; }
+  .animate-spin-slower { animation: spin-slower 30s linear infinite; }
+  .animate-float       { animation: float        6s ease-in-out infinite; }
+</style>

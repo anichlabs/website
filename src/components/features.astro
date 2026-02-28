@@ -4,51 +4,51 @@ import { Icon } from "astro-icon/components";
 
 const features = [
   {
-    title: "AI Healthcare & Data Strategy",
+    title: "EU Authorised Representative",
     description:
-      "Leverage AI, machine learning, and data analytics to optimize clinical workflows, research insights, and strategic decisions.",
-    icon: "bx:bxs-briefcase",
+      "Formal EU representation under written mandate for non-EU health-tech companies entering the European market. Required under MDR, IVDR, and the EU AI Act for high-risk systems.",
+    icon: "uil:building",
   },
   {
-    title: "Custom Apps & SaaS Solutions",
+    title: "EU AI Act & MDR Compliance",
     description:
-      "Build web and mobile applications tailored to healthcare or business needs, integrating data pipelines, dashboards, and automation.",
-    icon: "bx:bxs-window-alt",
+      "Risk classification, technical documentation review, and compliance roadmaps for high-risk medical AI systems under the EU AI Act and Medical Device Regulation.",
+    icon: "uil:shield-check",
   },
   {
-    title: "Quick & Affordable Websites",
+    title: "GDPR Advisory",
     description:
-      "Get professional websites up and running fast with modern frameworks, responsive design, and email integration.",
-    icon: "bx:bxs-data",
+      "Data protection frameworks, DPIA, Article 27 representation, and GDPR compliance for health data processors operating in or entering the European market.",
+    icon: "uil:lock",
   },
   {
-    title: "Data Analysis & Reporting",
+    title: "Clinical AI Strategy",
     description:
-      "Transform raw health or business data into actionable insights through dashboards, visualizations, and statistical modeling.",
-    icon: "bx:bxs-bot",
+      "Translating clinical needs into technically sound and regulatorily compliant AI product requirements. Bridging the gap between medical practice and engineering teams.",
+    icon: "uil:brain",
   },
   {
-    title: "AI Model Validation & Deployment",
+    title: "Data Science & Analytics",
     description:
-      "Ensure your AI models are accurate, compliant, and production-ready for healthcare or enterprise use.",
-    icon: "bx:bxs-file-find",
+      "Statistical modelling, data pipelines, and dashboards built for healthcare environments with compliance by design and outputs your clinical team can actually use.",
+    icon: "uil:chart-line",
   },
   {
-    title: "Consulting & Support",
+    title: "App Development",
     description:
-      "Guidance on AI, data strategy, app architecture, and digital transformation to accelerate your projects safely and efficiently.",
-    icon: "bx:bxs-user",
+      "GDPR-compliant web and mobile applications for healthcare operators and health-tech companies. Built with clinical workflows and regulatory requirements in mind from day one.",
+    icon: "uil:mobile-android",
   },
 ];
 ---
 
 <div class="mt-16 md:mt-0">
   <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-    Our Services
+    How We Help
   </h2>
   <p class="text-lg mt-4 text-slate-600">
-    We combine healthcare expertise, AI, and modern web technologies to deliver practical solutions 
-    for clinics, startups, and businesses.
+    Regulatory expertise, clinical judgment, and technical depth
+    everything health-tech companies need to enter and operate in the European market.
   </p>
 </div>
 
@@ -56,11 +56,11 @@ const features = [
   {
     features.map((item) => (
       <div class="flex gap-4 items-start">
-        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
+        <div class="mt-1 rounded-full p-2 w-8 h-8 shrink-0" style="background-color: #003399">
           <Icon class="text-white" name={item.icon} />
         </div>
         <div>
-          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+          <h3 class="font-semibold text-lg">{item.title}</h3>
           <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
         </div>
       </div>

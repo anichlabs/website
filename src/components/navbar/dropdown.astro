@@ -2,7 +2,6 @@
 import { Dropdown as DropdownContainer, DropdownItems } from "astro-navbar";
 const { title, lastItem, children } = Astro.props;
 ---
-
 <li class="relative">
   <DropdownContainer class="group">
     <button
@@ -24,7 +23,7 @@ const { title, lastItem, children } = Astro.props;
     <DropdownItems>
       <div
         class:list={[
-          "lg:absolute w-full lg:w-48 z-10",
+          "lg:absolute w-full lg:w-56 z-10",
           lastItem
             ? "lg:right-0 origin-top-right"
             : "lg:left-0 origin-top-left",
@@ -35,7 +34,7 @@ const { title, lastItem, children } = Astro.props;
             children.map((item) => (
               <a
                 href={item.path}
-                class="py-1 text-gray-600 hover:text-gray-900">
+                class="py-1 text-gray-600 hover:text-[#003399] transition-colors">
                 {item.title}
               </a>
             ))

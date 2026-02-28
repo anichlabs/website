@@ -1,0 +1,147 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Sectionhead from "@/components/sectionhead.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="Data Science & Analytics | AnichLabs OÜ">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Data Science & Analytics</Fragment>
+      <Fragment slot="desc">Statistical modelling, data pipelines, and dashboards built for healthcare environments with compliance by design.</Fragment>
+    </Sectionhead>
+
+    <div class="mx-auto max-w-3xl mt-16">
+      <div class="bg-red-50 border border-red-100 rounded-2xl p-8">
+        <p class="text-xs font-semibold uppercase tracking-widest text-red-400 mb-3">The Problem</p>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Healthcare data is valuable but rarely usable in its raw form</h2>
+        <p class="text-slate-600 leading-relaxed">Hospitals, clinics, and health-tech companies collect enormous volumes of data — but most of it sits in silos, legacy systems, or poorly structured databases. Without the right analytical infrastructure, that data generates reports nobody reads and decisions based on gut feeling rather than evidence. And in healthcare, the stakes of bad data decisions are uniquely high.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-3xl mt-10">
+      <div class="rounded-2xl p-8" style="background-color: #EEF2FF; border: 1px solid #C7D2FE;">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: #003399">The Solution</p>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">End-to-end analytics built for clinical environments and GDPR compliance</h2>
+        <p class="text-slate-600 leading-relaxed">AnichLabs OÜ designs and builds data pipelines, statistical models, and dashboards tailored to healthcare contexts. Every solution is built with GDPR-compliant data handling from the start — pseudonymisation, access controls, and audit trails included — and outputs that clinical and operational teams can actually interpret and act on.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-4xl mt-16">
+      <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">What's Included</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:database" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Data Audit & Pipeline Design</h3>
+          <p class="text-slate-500 text-sm">Assessment of your data sources, quality, and structure — followed by reproducible cleaning and transformation pipelines that ensure reliable analytical outputs.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:chart-line" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Statistical Modelling</h3>
+          <p class="text-slate-500 text-sm">Descriptive, inferential, and predictive modelling using Python or R — with clinical validation of endpoints and appropriate handling of health data distributions.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:presentation-check" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Interactive Dashboards</h3>
+          <p class="text-slate-500 text-sm">Custom dashboards in Metabase, Power BI, or bespoke web tools designed for the people who will actually use them — clinicians, managers, or both.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:lock" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">GDPR-Compliant Analytics</h3>
+          <p class="text-slate-500 text-sm">Pseudonymisation, data minimisation, and access controls applied throughout — with documentation suitable for DPO review and regulatory audit.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:server" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Automated Pipelines</h3>
+          <p class="text-slate-500 text-sm">Scheduled, automated data pipelines that reduce manual effort, eliminate human error, and keep your analytics current without ongoing developer intervention.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+          <Icon name="uil:file-alt" class="w-7 h-7 mb-3" style="color: #003399" />
+          <h3 class="font-semibold text-gray-800 mb-2">Reports & Presentations</h3>
+          <p class="text-slate-500 text-sm">Clear analytical reports for leadership, funding bodies, ethics committees, or clinical governance — not just raw output, but findings your audience can use.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-3xl mt-16">
+      <h2 class="text-2xl font-bold text-gray-800 mb-10 text-center">How It Works</h2>
+      <div class="flex flex-col gap-6">
+        <div class="flex gap-5 items-start">
+          <div class="text-white rounded-full w-9 h-9 flex items-center justify-center font-bold shrink-0" style="background-color: #003399">1</div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Discovery Call (free)</h3>
+            <p class="text-slate-500 text-sm mt-1">We discuss your data sources, analytical goals, and compliance requirements to scope the engagement.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 items-start">
+          <div class="text-white rounded-full w-9 h-9 flex items-center justify-center font-bold shrink-0" style="background-color: #003399">2</div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Data Discovery & Audit</h3>
+            <p class="text-slate-500 text-sm mt-1">We review your existing data — sources, formats, quality, and GDPR status — and identify what analysis is feasible and appropriate.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 items-start">
+          <div class="text-white rounded-full w-9 h-9 flex items-center justify-center font-bold shrink-0" style="background-color: #003399">3</div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Build & Validate</h3>
+            <p class="text-slate-500 text-sm mt-1">We build pipelines, models, and dashboards iteratively, validating outputs with you at each stage to ensure clinical and operational relevance.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 items-start">
+          <div class="text-white rounded-full w-9 h-9 flex items-center justify-center font-bold shrink-0" style="background-color: #003399">4</div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Handover & Training</h3>
+            <p class="text-slate-500 text-sm mt-1">We deliver full documentation and a handover session so your team owns and understands everything we built — no black boxes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-3xl mt-16">
+      <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="flex flex-col gap-5">
+        <details class="bg-slate-50 border border-slate-100 rounded-xl p-6 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            Our data is messy and incomplete. Can you still help?
+            <Icon name="uil:angle-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-slate-500 text-sm mt-4">Yes — messy data is the norm in healthcare, not the exception. We start with a data audit to give you honest expectations about what your data can and cannot support.</p>
+        </details>
+        <details class="bg-slate-50 border border-slate-100 rounded-xl p-6 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            What tools do you use?
+            <Icon name="uil:angle-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-slate-500 text-sm mt-4">Primarily Python (pandas, scikit-learn, matplotlib, seaborn), SQL, and cloud-native tools. For dashboards: Metabase, Power BI, or custom web solutions depending on your stack and team.</p>
+        </details>
+        <details class="bg-slate-50 border border-slate-100 rounded-xl p-6 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            Can you work with anonymised or pseudonymised data?
+            <Icon name="uil:angle-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-slate-500 text-sm mt-4">Yes, and we prefer it where clinically appropriate. We can also advise on the correct anonymisation approach for your specific use case under GDPR.</p>
+        </details>
+        <details class="bg-slate-50 border border-slate-100 rounded-xl p-6 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            Will our team be able to maintain what you build?
+            <Icon name="uil:angle-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-slate-500 text-sm mt-4">Yes. Every deliverable includes documentation and a handover session. We aim to leave your team more capable, not dependent on us for ongoing maintenance.</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-2xl mt-20 mb-10 text-center">
+      <h2 class="text-2xl font-bold text-gray-800">Ready to make sense of your healthcare data?</h2>
+      <p class="text-slate-500 mt-3">Book a free 30-minute call and let's explore what your data can tell you.</p>
+      <a href="https://calendly.com/chris-anichlabs/30min" target="_blank" rel="noopener"
+        class="mt-6 inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+        style="background-color: #003399">
+        <Icon name="uil:calendar-alt" class="w-5 h-5" />
+        Book a Free Call
+      </a>
+    </div>
+
+  </Container>
+</Layout>
