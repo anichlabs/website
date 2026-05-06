@@ -73,12 +73,10 @@ import { Icon } from "astro-icon/components";
   const width = container.clientWidth;
   const height = container.clientHeight;
 
-  let geoData;
+  let landPositions;
   try {
-    const res = await fetch('/lib/land-110m.json');
-    const topo = await res.json();
-    const topojson = await import('/lib/topojson-client.js');
-    geoData = topojson.feature(topo, topo.objects.land);
+    const res = await fetch('/lib/globe-dots.json');
+    landPositions = await res.json();
   } catch (e) {
     return;
   }
@@ -110,52 +108,8 @@ import { Icon } from "astro-icon/components";
     );
   }
 
-  function pointInRing(point, ring) {
-    let inside = false;
-    const x = point[0], y = point[1];
-    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
-      const xi = ring[i][0], yi = ring[i][1];
-      const xj = ring[j][0], yj = ring[j][1];
-      if (((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi)) inside = !inside;
-    }
-    return inside;
-  }
-
-  function pointInPolygon(point, polygon) {
-    if (!pointInRing(point, polygon[0])) return false;
-    for (let i = 1; i < polygon.length; i++) {
-      if (pointInRing(point, polygon[i])) return false;
-    }
-    return true;
-  }
-
-  function isLand(lon, lat) {
-    const features = geoData.features;
-    for (let f = 0; f < features.length; f++) {
-      const geom = features[f].geometry;
-      if (geom.type === 'Polygon') {
-        if (pointInPolygon([lon, lat], geom.coordinates)) return true;
-      } else if (geom.type === 'MultiPolygon') {
-        for (let p = 0; p < geom.coordinates.length; p++) {
-          if (pointInPolygon([lon, lat], geom.coordinates[p])) return true;
-        }
-      }
-    }
-    return false;
-  }
-
-  const landDots = [];
-  const step = 1.5;
-  for (let lat = -85; lat <= 85; lat += step) {
-    for (let lon = -180; lon <= 180; lon += step) {
-      if (isLand(lon, lat)) {
-        const v = latLonToVec3(lat, lon, radius * 1.005);
-        landDots.push(v.x, v.y, v.z);
-      }
-    }
-  }
   const landGeo = new THREE.BufferGeometry();
-  landGeo.setAttribute('position', new THREE.Float32BufferAttribute(landDots, 3));
+  landGeo.setAttribute('position', new THREE.Float32BufferAttribute(landPositions, 3));
   const landMat = new THREE.PointsMaterial({ color: 0x003399, size: 0.016, transparent: true, opacity: 0.7 });
   globeGroup.add(new THREE.Points(landGeo, landMat));
 
