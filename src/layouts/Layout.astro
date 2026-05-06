@@ -3,6 +3,7 @@ import { SEO } from "astro-seo";
 import Footer from "@/components/footer.astro";
 import Navbar from "@/components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
+// @ts-ignore
 import "@fontsource-variable/bricolage-grotesque";
 import "../styles/global.css";
 
@@ -13,7 +14,7 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
-  "/opengraph.jpg",
+  "/anichlabs_logo_full.png",
   Astro.site
 ).toString();
 
@@ -21,7 +22,7 @@ const { title } = Astro.props;
 
 const makeTitle = title
   ? title + " | " + "AnichLabs OÜ"
-  : "AnichLabs OÜ - AI & Data Solutions for Healthcare and Startups";
+  : "AnichLabs OÜ - AI and Software Lab for Healthcare and Regulated Industries";
 ---
 
 <!doctype html>
@@ -29,12 +30,13 @@ const makeTitle = title
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/anichlabs_logo_full.png" />
+    <link rel="apple-touch-icon" href="/anichlabs_logo_full.png" />
     <meta name="generator" content={Astro.generator} />
 
     <SEO
       title={makeTitle}
-      description="AnichLabs helps healthcare professionals, startups, and small teams leverage AI, data analytics, and smart apps to improve outcomes and streamline operations."
+      description="AnichLabs is an Estonian AI and software lab working across Europe and Latin America. Founded by a medical doctor and computer scientist, we build intelligent systems for healthcare and regulated industries."
       canonical={canonicalURL}
       twitter={{
         creator: "@chrisanich",
@@ -45,7 +47,7 @@ const makeTitle = title
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `AnichLabs OÜ — AI & Data Solutions for Healthcare and Startups`,
+          title: `AnichLabs OÜ - AI and Software Lab for Healthcare and Regulated Industries`,
           image: resolvedImageWithDomain,
         },
         image: {

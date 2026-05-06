@@ -1,69 +1,67 @@
 ---
-// @ts-ignore
 import { Icon } from "astro-icon/components";
 
-const features = [
+const practiceAreas = [
   {
-    title: "EU Authorised Representative",
-    description:
-      "Formal EU representation under written mandate for non-EU health-tech companies entering the European market. Required under MDR, IVDR, and the EU AI Act for high-risk systems.",
-    icon: "uil:building",
-  },
-  {
-    title: "EU AI Act & MDR Compliance",
-    description:
-      "Risk classification, technical documentation review, and compliance roadmaps for high-risk medical AI systems under the EU AI Act and Medical Device Regulation.",
-    icon: "uil:shield-check",
-  },
-  {
-    title: "GDPR Advisory",
-    description:
-      "Data protection frameworks, DPIA, Article 27 representation, and GDPR compliance for health data processors operating in or entering the European market.",
-    icon: "uil:lock",
-  },
-  {
-    title: "Clinical AI Strategy",
-    description:
-      "Translating clinical needs into technically sound and regulatorily compliant AI product requirements. Bridging the gap between medical practice and engineering teams.",
+    href: "/services/clinical-ai-strategy",
+    title: "AI Systems",
     icon: "uil:brain",
+    summary: "Clinical AI, AI agents, and automation, built EU-sovereign and audit-ready.",
   },
   {
-    title: "Data Science & Analytics",
-    description:
-      "Statistical modelling, data pipelines, and dashboards built for healthcare environments with compliance by design and outputs your clinical team can actually use.",
+    href: "/services/eu-ai-act-mdr-compliance",
+    title: "EU Compliance",
+    icon: "uil:shield-check",
+    summary: "EU AI Act, MDR, IVDR, and GDPR advisory for non-EU companies entering the European market.",
+  },
+  {
+    href: "/services/data-analytics",
+    title: "Data & Analytics",
     icon: "uil:chart-line",
+    summary: "Statistical modelling, dashboards, and evidence work for healthcare and regulated environments.",
   },
   {
-    title: "App Development",
-    description:
-      "GDPR-compliant web and mobile applications for healthcare operators and health-tech companies. Built with clinical workflows and regulatory requirements in mind from day one.",
-    icon: "uil:mobile-android",
+    href: "/services/app-development",
+    title: "Websites & Apps",
+    icon: "uil:browser",
+    summary: "Websites, booking systems, WhatsApp automation, and apps for clinics and health-tech.",
   },
 ];
 ---
 
 <div class="mt-16 md:mt-0">
   <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-    How We Help
+    What We Do
   </h2>
-  <p class="text-lg mt-4 text-slate-600">
-    Regulatory expertise, clinical judgment, and technical depth
-    everything health-tech companies need to enter and operate in the European market.
+  <p class="text-lg mt-4 text-slate-600 max-w-2xl">
+    Four practice areas, one Lab. Clinical reasoning, computational depth,
+    and EU regulation applied to healthcare and regulated industries.
   </p>
 </div>
 
-<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+<!-- 4-card grid -->
+<div class="grid sm:grid-cols-2 mt-12 gap-6">
   {
-    features.map((item) => (
-      <div class="flex gap-4 items-start">
-        <div class="mt-1 rounded-full p-2 w-8 h-8 shrink-0" style="background-color: #003399">
-          <Icon class="text-white" name={item.icon} />
+    practiceAreas.map((area) => (
+      <a
+        href={area.href}
+        class="group flex gap-5 items-start p-6 rounded-2xl border border-slate-200 hover:border-[#003399] hover:shadow-md transition-all bg-white">
+        <div class="rounded-full p-3 w-12 h-12 shrink-0 flex items-center justify-center" style="background-color: #003399">
+          <Icon class="text-white w-6 h-6" name={area.icon} />
         </div>
         <div>
-          <h3 class="font-semibold text-lg">{item.title}</h3>
-          <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+          <h3 class="font-semibold text-lg text-gray-800 group-hover:text-[#003399] transition-colors">
+            {area.title}
+          </h3>
+          <p class="text-slate-500 mt-2 leading-relaxed text-sm">
+            {area.summary}
+          </p>
+          <span class="inline-flex items-center gap-1 mt-3 text-sm font-semibold group-hover:underline" style="color: #003399">
+            Learn more
+            <Icon name="uil:arrow-right" class="w-4 h-4" />
+          </span>
         </div>
-      </div>
+      </a>
     ))
   }
 </div>

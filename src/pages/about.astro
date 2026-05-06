@@ -4,11 +4,13 @@ import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
 import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import christopherPhoto from "@/assets/christopher.jpg";
+import danielPhoto from "@/assets/daniel.jpg";
 
 const avatarMap: Record<string, ImageMetadata> = {
   "christopher.png": christopherPhoto,
+  "daniel.jpg": danielPhoto,
 };
 
 const team = await getCollection("team", ({ data }) => !data.draft);
@@ -24,9 +26,9 @@ const sortedTeam = team.sort(
       <Fragment slot="desc">Clinical expertise, technical depth, and EU regulatory knowledge in one place.</Fragment>
     </Sectionhead>
 
-    <div class="mx-auto max-w-4xl mt-16 flex flex-col gap-20">
+    <div class="mx-auto max-w-4xl mt-16 flex flex-col gap-10">
       {sortedTeam.map(async (member) => {
-        const { Content } = await member.render();
+        const { Content } = await render(member);
         const photo = avatarMap[member.data.avatar.src];
         return (
           <div class="grid md:grid-cols-3 gap-12 items-start">
