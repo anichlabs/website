@@ -17,12 +17,15 @@
   If we ever want to remove these styles, we need to add an explicit border
   color utility to any element that depends on these defaults.
 */
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
+
+
+html, body {
+  background: linear-gradient(138deg, #ffffff 0%, #ffffff 18%, #dbe4ff 100%);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  min-height: 100vh;
+}
+
+main, section, header {
+  background-color: transparent;
 }
