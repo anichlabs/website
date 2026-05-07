@@ -29,3 +29,7 @@ html, body {
 main, section, header {
   background-color: transparent;
 }
+
+html, body {
+  overflow-x: hidden;
+}

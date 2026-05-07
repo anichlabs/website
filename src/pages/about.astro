@@ -19,12 +19,19 @@ const sortedTeam = team.sort(
 );
 ---
 
-<Layout title="About">
+<Layout title="About" description="AnichLabs is led by a medical doctor and computer scientist working across Europe and Latin America. We combine clinical reasoning, technical depth, and EU regulatory expertise to build compliance-first AI systems for healthcare and regulated industries.">
   <Container>
     <Sectionhead>
       <Fragment slot="title">About</Fragment>
       <Fragment slot="desc">Clinical expertise, technical depth, and EU regulatory knowledge in one place.</Fragment>
     </Sectionhead>
+
+    <!-- Lab introduction -->
+    <div class="mx-auto max-w-3xl mt-16 text-center">
+      <p class="text-lg text-slate-600 leading-relaxed">
+        AnichLabs is an European AI and software lab built for healthcare and compliance work. We combine clinical reasoning, computational depth, and EU regulatory expertise in one place. The team works across Europe and Latin America, building intelligent systems that operate under real medical and regulatory constraints.
+      </p>
+    </div>
 
     <div class="mx-auto max-w-4xl mt-16 flex flex-col gap-10">
       {sortedTeam.map(async (member) => {

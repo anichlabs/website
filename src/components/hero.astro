@@ -5,25 +5,26 @@ import { Icon } from "astro-icon/components";
 
 <main class="relative">
 
-  <div class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+  <div class="grid lg:grid-cols-2 place-items-center pb-2 md:pt-12 md:pb-20">
 
     <!-- Right: 3D globe -->
-    <div class="py-6 md:order-1 flex items-center justify-center w-full">
-      <div id="anichlabs-globe" class="relative w-full max-w-[460px] h-[460px] opacity-0 transition-opacity duration-700 ease-out"></div>
+    <div class="pb-8 md:py-6 md:order-1 flex items-center justify-center w-full">
+      <div id="anichlabs-globe" class="relative w-full max-w-[320px] h-[260px] md:max-w-[460px] md:h-[460px] opacity-0 transition-opacity duration-700 ease-out overflow-hidden"></div>
     </div>
 
     <!-- Left: text content -->
     <div>
       <p class="text-sm font-semibold uppercase tracking-widest mb-3" style="color: #003399">
-        Estonia · Europe · Latin America
+        Europe · Latin America
       </p>
-      <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-        Intelligent systems for <span style="color: #003399">healthcare and compliance</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+        Intelligent systems built for <span style="color: #003399">compliance</span>
       </h1>
       <p class="text-lg mt-4 text-slate-600 max-w-xl">
-        AnichLabs is an Estonian AI and software lab working across Europe and
-        Latin America. Founded by a medical doctor and computer scientist, we
-        build intelligent systems for healthcare and compliance work.
+        AnichLabs is a European AI and software lab building compliance-first
+        systems on EU-sovereign infrastructure. Founded by a medical doctor and
+        computer scientist, we serve healthcare, finance, and other industries
+        that operate under regulatory scrutiny.
       </p>
       <ul class="mt-5 space-y-1 text-sm text-slate-500 max-w-md">
         <li class="flex items-center gap-2">
@@ -36,25 +37,23 @@ import { Icon } from "astro-icon/components";
         </li>
         <li class="flex items-center gap-2">
           <Icon name="uil:check-circle" class="w-4 h-4 shrink-0" style="color: #003399" />
-          Digital platforms for clinics and health-tech companies
+          Digital platforms for clinics and tech companies
         </li>
       </ul>
       <div class="mt-8 flex flex-col sm:flex-row gap-3">
         <Link
-          href="https://calendly.com/chris-anichlabs/30min"
-          target="_blank"
-          rel="noopener"
-          class="flex gap-1 items-center justify-center">
-          <Icon class="text-white w-5 h-5" name="uil:calendar-alt" />
-          Book a Free Discovery Call
-        </Link>
+            href="#services"
+            class="flex gap-1 items-center justify-center">
+            <Icon class="text-white w-5 h-5" name="uil:arrow-right" />
+            Explore Our Services
+          </Link>
         <Link
           size="lg"
           style="outline"
-          href="#services"
+          href="/about"
           class="flex gap-1 items-center justify-center">
-          <Icon class="text-black w-4 h-4" name="uil:arrow-down" />
-          See What We Do
+          <Icon class="text-black w-4 h-4" name="uil:user" />
+          About the Lab
         </Link>
       </div>
       <p class="mt-6 text-xs text-slate-400">
@@ -65,8 +64,9 @@ import { Icon } from "astro-icon/components";
   </div>
 </main>
 
-<script src="/lib/three.min.js" is:inline></script>
+<script src="/lib/three.min.js" is:inline defer></script>
 <script is:inline>
+window.addEventListener('DOMContentLoaded', function() {
 (async function() {
   const container = document.getElementById('anichlabs-globe');
   if (!container) return;
@@ -110,7 +110,7 @@ import { Icon } from "astro-icon/components";
 
   const landGeo = new THREE.BufferGeometry();
   landGeo.setAttribute('position', new THREE.Float32BufferAttribute(landPositions, 3));
-  const landMat = new THREE.PointsMaterial({ color: 0x003399, size: 0.016, transparent: true, opacity: 0.7 });
+  const landMat = new THREE.PointsMaterial({ color: 0x003399, size: 0.020, transparent: true, opacity: 0.7 });
   globeGroup.add(new THREE.Points(landGeo, landMat));
 
   const euNodes = [
@@ -318,4 +318,5 @@ import { Icon } from "astro-icon/components";
     renderer.setSize(w, h);
   });
 })();
+});
 </script>

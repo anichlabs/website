@@ -9,20 +9,25 @@ import "../styles/global.css";
 
 export interface Props {
   title: string;
+  description?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
-  "/anichlabs_logo_full.png",
+  "/og-preview.jpg",
   Astro.site
 ).toString();
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
 const makeTitle = title
-  ? title + " | " + "AnichLabs OÜ"
-  : "AnichLabs OÜ - AI and Software Lab for Healthcare and Regulated Industries";
+  ? title + " | " + "AnichLabs"
+  : "AnichLabs | Intelligent Systems";
+
+const defaultDescription = "AnichLabs is a European AI and software lab building compliance-first systems on EU-sovereign infrastructure. We serve healthcare, finance, and other industries that operate under regulatory scrutiny.";
+
+const pageDescription = description || defaultDescription;
 ---
 
 <!doctype html>
@@ -36,7 +41,7 @@ const makeTitle = title
 
     <SEO
       title={makeTitle}
-      description="AnichLabs is an Estonian AI and software lab working across Europe and Latin America. Founded by a medical doctor and computer scientist, we build intelligent systems for healthcare and regulated industries."
+      description={pageDescription}
       canonical={canonicalURL}
       twitter={{
         creator: "@chrisanich",
@@ -47,7 +52,7 @@ const makeTitle = title
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `AnichLabs OÜ - AI and Software Lab for Healthcare and Regulated Industries`,
+          title: makeTitle,
           image: resolvedImageWithDomain,
         },
         image: {
