@@ -1,7 +1,7 @@
 ---
 draft: false
 name: "Christopher Anich"
-title: "Founder and Healthcare AI Consultant"
+title: "Founder, MD and AI Engineer"
 avatar: {
   src: "christopher.png",
   alt: "Christopher Anich - Founder of AnichLabs OÜ"
@@ -12,6 +12,6 @@ email: "contact@anichlabs.com"
 publishDate: "2025-01-01 00:00"
 ---
 
-I am a medical doctor with more than 14 years of experience and a computer scientist with an MSc in Data Analytics from Dublin. My work spans deep learning, computer vision, cloud deployment, and clinical data strategy, helping organisations build effective AI solutions in healthcare and regulated industries.
+I am a medical doctor with more than 14 years of experience and an AI engineer with an MSc in Data Analytics from Dublin. My work spans production AI systems, deep learning, computer vision, cloud and self-hosted deployment, and data strategy, helping organisations build software that is functional, auditable, and ready for real-world use.
 
-I founded AnichLabs OÜ on a **compliance-first philosophy**. EU AI Act, GDPR, and medical device standards are embedded from day one, not added later. I work with a trusted network of developers, data scientists, and regulatory advisors to deliver solutions that are functional, auditable, and ready for regulated environments.
+I founded AnichLabs OÜ to build intelligent systems for businesses that need privacy, compliance, and reliability built in from day one, not added later. I work with a trusted network of developers, data scientists, and regulatory advisors to deliver solutions that work in regulated environments, in growing companies, and for founders who care about doing things properly.
