@@ -1,20 +1,21 @@
 # AnichLabs OÜ - Official Website
 
-The official website of **AnichLabs OÜ**, a healthcare AI consulting company based in Tallinn, Estonia. Built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com), and deployed via [Vercel](https://vercel.com).
+The official website of **AnichLabs OÜ**, a European software and AI company building intelligent systems where privacy, compliance, and reliability matter. Built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com), and deployed via [Vercel](https://vercel.com).
 
 ---
 
 ## About
 
-AnichLabs OÜ helps healthcare professionals, startups, and small teams leverage AI, data analytics, and smart apps to improve outcomes and streamline operations. Our approach is grounded in a **compliance-first philosophy** - EU AI Act, GDPR, and medical device standards are embedded from day one.
+AnichLabs OÜ builds production AI and software systems for businesses across Europe and Latin America. Practice areas: AI Systems, EU Compliance, Data and Analytics, and Websites and Web Platforms. Founded by a medical doctor and AI engineer, registered in Estonia.
 
 ---
 
 ## Tech Stack
 
-- **Framework:** [Astro 4](https://astro.build)
+- **Framework:** [Astro 5](https://astro.build)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com)
 - **Icons:** [astro-icon](https://github.com/natemoo-re/astro-icon) + [Unicons](https://iconscout.com/unicons)
+- **3D Graphics:** [Three.js](https://threejs.org) for the homepage globe
 - **Contact Form:** [Web3Forms](https://web3forms.com)
 - **Booking:** [Calendly](https://calendly.com/chris-anichlabs/30min)
 - **Deployment:** [Vercel](https://vercel.com)
@@ -26,7 +27,7 @@ AnichLabs OÜ helps healthcare professionals, startups, and small teams leverage
 ### Prerequisites
 
 - Node.js 18+
-- npm or yarn
+- npm or pnpm
 
 ### Installation
 
@@ -50,6 +51,8 @@ Open [http://localhost:4321](http://localhost:4321) in your browser.
 npm run build
 ```
 
+The build script runs `scripts/precompute-globe.mjs` first to generate `public/lib/globe-dots.json`, then runs the Astro build.
+
 ### Preview production build
 
 ```bash
@@ -62,24 +65,30 @@ npm run preview
 
 ```
 src/
-├── assets/          # Images and static assets (optimised by Astro)
-├── components/      # Reusable UI components
-│   ├── navbar/      # Navigation bar
-│   ├── ui/          # Buttons, links, etc.
-│   ├── hero.astro
-│   ├── features.astro
+├── assets/                  # Team photos, optimised by Astro
+├── components/              # Reusable UI components
+│   ├── navbar/              # Navigation bar with services dropdown
+│   ├── ui/                  # Buttons, links
+│   ├── hero.astro           # Homepage hero with Three.js globe
+│   ├── features.astro       # Four practice area cards
 │   ├── footer.astro
 │   ├── cta.astro
+│   ├── sectionhead.astro
 │   └── contactform.astro
 ├── content/
-│   └── blog/        # Blog posts in Markdown
+│   └── team/                # Team member bios in Markdown
 ├── layouts/
-│   └── Layout.astro # Base HTML layout
+│   └── Layout.astro         # Base HTML layout, SEO meta, OG tags
 └── pages/
-    ├── index.astro  # Homepage
-    ├── about.astro
-    ├── contact.astro
-    └── blog/
+    ├── index.astro          # Homepage
+    ├── about.astro          # Team and core expertise
+    ├── contact.astro        # Contact form + Calendly
+    ├── 404.astro
+    └── services/
+        ├── ai-systems.astro
+        ├── eu-compliance.astro
+        ├── data-analytics.astro
+        └── websites-and-apps.astro
 ```
 
 ---
@@ -102,9 +111,12 @@ Then update `src/components/contactform.astro` with your key.
 | Route | Description |
 |-------|-------------|
 | `/` | Homepage with hero, services, and CTA |
-| `/about` | Founder bio and core expertise |
+| `/about` | Team bios and core expertise |
 | `/contact` | Contact form + Calendly booking |
-| `/blog` | Blog posts |
+| `/services/ai-systems` | AI agents, automation, and clinical AI |
+| `/services/eu-compliance` | EU AI Act, MDR, IVDR, and GDPR advisory |
+| `/services/data-analytics` | Statistical modelling and dashboards |
+| `/services/websites-and-apps` | Websites, web platforms, and custom apps |
 
 ---
 
@@ -112,11 +124,13 @@ Then update `src/components/contactform.astro` with your key.
 
 - **Email:** contact@anichlabs.com
 - **LinkedIn:** [linkedin.com/company/anichlabs](https://linkedin.com/company/anichlabs)
+- **GitHub:** [github.com/anichlabs](https://github.com/anichlabs)
 - **Book a call:** [calendly.com/chris-anichlabs/30min](https://calendly.com/chris-anichlabs/30min)
-- **Location:** Tallinn, Estonia
+- **Registered:** Estonia, EU
+- **Operating from:** Dublin, Ireland
 
 ---
 
 ## License
 
-This codebase is proprietary. The underlying Astro template ([Astroship](https://github.com/surjithctly/astroship)) is MIT licensed. All AnichLabs OÜ branding, content, and customisations are © 2025 AnichLabs OÜ. All rights reserved.
+This codebase is proprietary. The underlying Astro template ([Astroship](https://github.com/surjithctly/astroship)) is MIT licensed. All AnichLabs OÜ branding, content, and customisations are © 2026 AnichLabs OÜ. All rights reserved.
